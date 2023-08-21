@@ -1,4 +1,4 @@
-import { Hero, Navbar } from "./components/";
+import { Hero, Lead, Navbar } from "./components/";
 import "./index.css"
 
 function App() {
@@ -6,6 +6,7 @@ function App() {
     <div>
       <Navbar />
       <Hero />
+      <Lead />
     </div>
   );
 }
