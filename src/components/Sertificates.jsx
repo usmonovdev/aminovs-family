@@ -4,7 +4,7 @@ import sert from "../image/sertificate.png"
 
 const Sertificates = () => {
   return (
-    <div className="custom-container">
+    <div className="custom-container" data-aos="fade-up">
       <h1 className="text-[30px] font-bold text-center">
         Bizning mahsulotlarimiz barcha{" "}
         <span className="text-[#2EDD99]">sifat darajalaridan</span> o'tgan

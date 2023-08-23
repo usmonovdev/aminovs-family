@@ -1,10 +1,11 @@
 import React from "react";
 import lead from "../image/lead.png";
-import arrow from "../image/icons/arrow.svg"
+import arrow from "../image/icons/arrow.svg";
+import { Link } from "react-router-dom";
 
 const Lead = () => {
   return (
-    <div className="bg-[#F8F8F8]">
+    <div className="bg-[#F8F8F8]" data-aos="fade-up">
       <div className="custom-container py-8 flex md:flex-row flex-col-reverse gap-4 items-center">
         <div className="md:w-[50%] w-full flex flex-col gap-3">
           <h1 className="text-[30px] font-bold">
@@ -19,13 +20,15 @@ const Lead = () => {
             centuries, but also the leap into electronic typesetting, remaining
             e
           </p>
-          <div className="w-full flex items-center relative">
-            <button className="py-3 px-6 rounded-full bg-[#2EDD99] text-white">
-              Ko'proq
-            </button>
-            <div className="cursor-pointer w-[30px] h-[30px] rounded-full bg-[#F1AA1F] flex items-center justify-center absolute left-[90px]">
-              <img src={arrow} alt="arrow" className="w-[20px]"/>
-            </div>
+          <div className="w-full">
+            <Link to={"/leader"} className=" flex items-center relative">
+              <button className="py-3 px-6 rounded-full bg-[#2EDD99] text-white">
+                Ko'proq
+              </button>
+              <div className="cursor-pointer w-[30px] h-[30px] rounded-full bg-[#F1AA1F] flex items-center justify-center absolute left-[90px]">
+                <img src={arrow} alt="arrow" className="w-[20px]" />
+              </div>
+            </Link>
           </div>
         </div>
         <div className="md:w-[50%] w-full flex items-center justify-center">

@@ -25,11 +25,11 @@ const Products = () => {
   }, []);
 
   return (
-    <div className="custom-container mb-10">
-      {product.length == 0 ? (
-        <p className="text-center">Mahsulot topilmadi!</p>
-      ) : isLoading ? (
+    <div className="custom-container mb-10" data-aos="fade-up">
+      {isLoading ? (
         <p className="text-center">Yuklanmoqda...</p>
+      ) : product.length == 0 ? (
+        <p className="text-center">Mahsulot topilmadi!</p>
       ) : (
         <>
           <div className="products-card">

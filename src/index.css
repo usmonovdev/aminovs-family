@@ -8,6 +8,12 @@
   }
 }
 
+@layer base {
+  body {
+    @apply m-0 p-0 overflow-x-hidden;
+  }
+}
+
 .hero-bg {
   background-image: url(./image/home-bg.png);
   object-fit: cover;
@@ -40,4 +46,53 @@
   background-size: contain;
   background-repeat: no-repeat;
   background: #f3f3f3;
+}
+
+.cube-animation {
+  animation: cubeAnimation 1900ms infinite alternate;
+}
+
+.cube-animation2 {
+  animation: cubeAnimation 1900ms infinite alternate;
+  animation-delay: 500ms;
+}
+
+@keyframes cubeAnimation {
+  0%{
+    transform: translateY(-30px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.leaf-animation {
+  animation: leafAnimation 2200ms infinite alternate;
+}
+
+.leaf-animation2 {
+  animation: leafAnimation2 2200ms infinite alternate;
+  animation-delay: 600ms;
+  transform: rotate(90deg);
+}
+
+@keyframes leafAnimation {
+  0%{
+    transform: translateY(-30px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes leafAnimation2 {
+  0%{
+    transform: translateY(-30px) rotate(90deg);
+  }
+
+  100% {
+    transform: translateY(0) rotate(90deg);
+  }
 }

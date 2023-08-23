@@ -2,7 +2,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <div className="custom-container my-8 flex flex-col gap-4" id="contact">
+    <div className="custom-container my-8 flex flex-col gap-4" id="contact" data-aos="fade-up">
       <h1 className="text-[30px] font-bold text-center">
         Biz bilan <span className="text-[#2EDD99]">bog'lanish</span>
       </h1>

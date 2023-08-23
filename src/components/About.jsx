@@ -3,16 +3,16 @@ import cube from "../image/cube.png";
 
 const About = () => {
   return (
-    <div className="custom-container mb-8" id="about">
+    <div className="custom-container mb-8" id="about" data-aos="fade-up">
       <div className="relative">
-        <img src={cube} alt="cube" className="w-[100px] absolute top-3" />
+        <img src={cube} alt="cube" className="cube-animation w-[100px] absolute top-3" />
         <h1 className="text-[30px] font-bold text-center">
           Bizning <span className="text-[#2EDD99]">kompaniya</span> haqida
         </h1>
         <img
           src={cube}
           alt="cube"
-          className="w-[100px] absolute top-3 right-0"
+          className="cube-animation2 w-[100px] absolute top-3 right-0"
         />
       </div>
       <div className="w-full mt-8 rounded-lg flex flex-row bg-[#F3F3F3]">
