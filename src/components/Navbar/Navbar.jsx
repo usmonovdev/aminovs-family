@@ -3,9 +3,10 @@ import logo from "../../image/logo.png";
 import { navbarData } from "../../data/navbarData";
 import burger from "../../image/icons/burger.svg";
 import Mobile from "./Mobile";
+import { Link as Scroll } from "react-scroll";
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   return (
     <div className="custom-container">
       <div className="flex flex-row items-center justify-between py-4">
@@ -15,8 +16,16 @@ const Navbar = () => {
         <ul className="sm:flex hidden flex-row gap-3">
           {navbarData.map((data) => {
             return (
-              <li>
-                <a href={`#${data.link}`} className="hover:text-[#2EDD99] text-black">{data.title}</a>
+              <li key={data.id} className="cursor-pointer">
+                <Scroll
+                  to={data.link}
+                  spy={true}
+                  offset={-50}
+                  smooth={true}
+                  className="hover:text-[#2EDD99] text-black"
+                >
+                  {data.title}
+                </Scroll>
               </li>
             );
           })}

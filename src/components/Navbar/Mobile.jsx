@@ -2,12 +2,13 @@ import React from "react";
 import logo from "../../image/logo.png";
 import close from "../../image/icons/close.svg";
 import { navbarData } from "../../data/navbarData";
+import { Link as Scroll } from "react-scroll";
 
 const Mobile = ({ open, setOpen }) => {
   return (
     <>
       {open ? (
-        <div className="w-full h-screen bg-[#fff] sm:hidden fixed top-0 left-0 py-4 px-4">
+        <div className="w-full h-screen bg-[#fff] sm:hidden fixed top-0 left-0 py-4 px-4 z-[1000]">
           <div className="w-full flex flex-row justify-between">
             <img src={logo} alt="logo" className="w-[80px]" />
             <img
@@ -20,8 +21,16 @@ const Mobile = ({ open, setOpen }) => {
           <ul>
             {navbarData.map((data) => {
               return (
-                <li className="py-3 border border-t-0 border-r-0 border-l-0">
-                  <a href={`#${data.link}`} className="hover:text-[#2EDD99] text-black">{data.title}</a>
+                <li className="py-3 border border-t-0 border-r-0 border-l-0 cursor-pointer">
+                  <Scroll
+                  to={data.link}
+                  spy={true}
+                  offset={-50}
+                  smooth={true}
+                  className="hover:text-[#2EDD99] text-black"
+                >
+                  {data.title}
+                </Scroll>
                 </li>
               );
             })}

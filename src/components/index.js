@@ -1,4 +1,12 @@
 export { default as Navbar } from "./Navbar/Navbar"
+export { default as Home } from "./Home"
+export { default as Footer } from "./Footer"
+export { default as NotFound } from "./NotFound"
+
 export { default as Hero } from "./Hero"
 export { default as Lead } from "./Lead"
 export { default as BestSelling } from "./BestSelling"
+export { default as Products } from "./Products"
+export { default as About } from "./About"
+export { default as Sertificates } from "./Sertificates"
+export { default as Contact } from "./Contact"
