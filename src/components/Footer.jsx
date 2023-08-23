@@ -36,7 +36,7 @@ const Footer = () => {
             Bizning manzil
           </li>
           <li className="text-[#A9A9A9]">
-            Adres: 1000115, Kichik Xalka Yuli 3-31, Chilonzor tumani, Toshkent
+            Addres: 1000115, Kichik Xalka Yuli 3-31, Chilonzor tumani, Toshkent
             shahri.
           </li>
           <li className="text-[#A9A9A9]">
