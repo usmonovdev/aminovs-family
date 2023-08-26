@@ -1,0 +1,28 @@
+{
+    "header": {
+        "main": "Main",
+        "about": "About",
+        "drinks": "Drinks",
+        "contact": "Contact"
+    },
+    "contact": {
+        "name": "Name",
+        "number": "Phone",
+        "nameError": "Enter your name!",
+        "numberError": "Enter your number correctly!"
+    },
+    "footer": {
+        "adress": {
+            "title": "Our address",
+            "adress": "Location",
+            "production": "Production addressee"
+        },
+        "contact": "Contact"
+    },
+    "helpers": {
+        "more": "More",
+        "all": "All products",
+        "yuborish": "Submit",
+        "loading": "Submitting..."
+    }
+}

@@ -7,6 +7,7 @@ import eye from "../image/icons/eye.svg";
 const Products = () => {
   const [product, setProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  console.log(product);
 
   const getProduct = async () => {
     setIsLoading(true);
@@ -56,8 +57,8 @@ const Products = () => {
                       <img src={star} className="w-[22px]" />
                       <img src={star} className="w-[22px]" />
                     </div>
-                    <div className="flex flex-row gap-3 items-center">
-                      <img src={eye} className="w-[35px]" alt="eye" />
+                    <div className="flex flex-row gap-2 items-center">
+                      <img src={eye} className="w-[25px]" alt="eye" />
                       <p>326</p>
                     </div>
                   </div>

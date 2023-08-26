@@ -6,7 +6,6 @@ import { useState } from "react";
 
 const Hero = () => {
   const [info, setInfo] = useState([]);
-  console.log(info);
   const getData = async () => {
     try {
       const { data } = await axios.get(GET_INFO);

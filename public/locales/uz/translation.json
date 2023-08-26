@@ -1,0 +1,28 @@
+{
+    "header": {
+        "main": "Asosiy",
+        "about": "Biz haqimizda",
+        "drinks": "Ichimliklar",
+        "contact": "Bog'lanish"
+    },
+    "contact": {
+        "name": "Ismingiz",
+        "number": "Raqamingiz",
+        "nameError": "Ismingizni kiriting!",
+        "numberError": "Raqamingizni to'g'ri kiriting!"
+    },
+    "footer": {
+        "adress": {
+            "title": "Bizning manzil",
+            "adress": "Manzil",
+            "production": "Ishlab chiqarish addresi"
+        },
+        "contact": "Bog'lanish"
+    },
+    "helpers": {
+        "more": "Ko'proq",
+        "all": "Barcha mahsulotlar",
+        "yuborish": "Yuborish",
+        "loading": "Yuborilmoqda..."
+    }
+}

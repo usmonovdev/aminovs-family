@@ -96,3 +96,11 @@
     transform: translateY(0) rotate(90deg);
   }
 }
+
+.contact-input {
+  background-image: url(./image/contact.png);
+  background-color: transparent;
+  padding: 50px 40px;
+  outline: none;
+  background-size: cover;
+}

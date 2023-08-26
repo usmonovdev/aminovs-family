@@ -4,8 +4,10 @@ import phone from "../image/icons/phone.svg";
 import primeLogo from "../image/prime.png";
 import { navbarData } from "../data/navbarData";
 import { Link as Scroll } from "react-scroll";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { i18n, t } = useTranslation();
   return (
     <div className="bg-[#F3F3F3]">
       <div className="custom-container py-8">
@@ -16,15 +18,12 @@ const Footer = () => {
           <ul className="flex flex-row gap-3">
             {navbarData.map((data) => {
               return (
-                <li className="cursor-pointer">
-                  <Scroll
-                    to={data.link}
-                    spy={true}
-                    offset={-50}
-                    smooth={true}
-                    className="hover:text-[#2EDD99] text-black"
-                  >
-                    {data.title}
+                <li
+                  key={data.id}
+                  className="cursor-pointer p-[10px] transition text-black hover:text-white hover:bg-[#2EDD99] rounded"
+                >
+                  <Scroll to={data.link} spy={true} offset={-50} smooth={true}>
+                    {t(data.title)}
                   </Scroll>
                 </li>
               );
@@ -33,20 +32,20 @@ const Footer = () => {
         </div>
         <ul className="">
           <li className="text-[#147D55] text-[35px] font-semibold">
-            Bizning manzil
+            {t("footer.adress.title")}
           </li>
           <li className="text-[#A9A9A9]">
-            Addres: 1000115, Kichik Xalka Yuli 3-31, Chilonzor tumani, Toshkent
-            shahri.
+            {t("footer.adress.adress")}: 1000115, Kichik Xalka Yuli 3-31,
+            Chilonzor tumani, Toshkent shahri.
           </li>
           <li className="text-[#A9A9A9]">
-            Ishlab chiqarish adresi: Toshkent shahri, Sergeli tumani, Beshkent
-            ko`cha 83-uy
+            {t("footer.adress.production")}: Toshkent shahri, Sergeli tumani,
+            Beshkent ko`cha 83-uy
           </li>
         </ul>
         <ul className="flex flex-col gap-3">
           <li className="text-[#147D55] text-[35px] font-semibold">
-            Bog'lanish
+            {t("footer.contact")}
           </li>
           <li className="text-[#A9A9A9] flex flex-row gap-4">
             <img src={phone} className="w-[25px]" />
@@ -57,12 +56,18 @@ const Footer = () => {
             <a href="tel:+998955155415">+99895 515 54 15</a>
           </li>
         </ul>
-        <div className="flex flex-row items-center gap-4 mt-8">
+        <div className="flex flex-row items-center gap-4 mt-8 bg-[#2EDD99] p-2 rounded w-fit text-white">
           <a href="https://primetechgroup.uz">
             <img src={primeLogo} className="w-[50px]" />
           </a>
           <a href="https://primetechgroup.uz" className="">
-            Prime tech tomonidan ishlab chiqarilgan.
+            {i18n.language == "uz" ? (
+              <>Prime tech tomonidan ishlab chiqarilgan.</>
+            ) : i18n.language == "ru" ? (
+              <>Производится Prime tech.</>
+            ) : (
+              <>Produced by Prime tech.</>
+            )}
           </a>
         </div>
       </div>

@@ -3,8 +3,11 @@ import logo from "../../image/logo.png";
 import close from "../../image/icons/close.svg";
 import { navbarData } from "../../data/navbarData";
 import { Link as Scroll } from "react-scroll";
+import { useTranslation } from "react-i18next";
+import ChangeLang from "../../ui/ChangeLang";
 
 const Mobile = ({ open, setOpen }) => {
+  const { t } = useTranslation()
   return (
     <>
       {open ? (
@@ -21,7 +24,7 @@ const Mobile = ({ open, setOpen }) => {
           <ul>
             {navbarData.map((data) => {
               return (
-                <li className="py-3 border border-t-0 border-r-0 border-l-0 cursor-pointer">
+                <li className="py-3 border border-t-0 border-r-0 border-l-0 cursor-pointer" key={data.id}>
                   <Scroll
                   to={data.link}
                   spy={true}
@@ -29,11 +32,14 @@ const Mobile = ({ open, setOpen }) => {
                   smooth={true}
                   className="hover:text-[#2EDD99] text-black"
                 >
-                  {data.title}
+                  {t(data.title)}
                 </Scroll>
                 </li>
               );
             })}
+            <li className="mt-3">
+              <ChangeLang />
+            </li>
           </ul>
         </div>
       ) : (

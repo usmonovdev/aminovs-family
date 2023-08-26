@@ -1,22 +1,22 @@
 export const navbarData = [
     {
         id: 1,
-        title: "Asosiy",
+        title: "header.main",
         link: "main"
     },
     {
         id: 2,
-        title: "Biz haqimizda",
+        title: "header.about",
         link: "about"
     },
     {
         id: 3,
-        title: "Ichimliklar",
+        title: "header.drinks",
         link: "drinks"
     },
     {
         id: 4,
-        title: "Bog’lanish",
+        title: "header.contact",
         link: "contact"
     },
 ]

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import arrowPrew from "../image/icons/arrow-prev.png";
 import arrowNext from "../image/icons/arrow-next.png";
+import { useTranslation } from "react-i18next";
 
 const filteringData = [
   {
     id: 1,
-    title: "Barcha mahsulotlar",
+    title: "helpers.all",
     value: "",
   },
   {
@@ -27,7 +28,7 @@ const filteringData = [
 
 const Filtering = () => {
   const [filtered, setFiltered] = useState(1);
-  console.log(filtered);
+  const { t } = useTranslation()
 
   const prewClick = () => {
     if (filtered == 1) {
@@ -37,12 +38,20 @@ const Filtering = () => {
     }
   };
 
+  const nextClick = () => {
+    if (filtered == filteringData.length) {
+      return;
+    } else {
+      setFiltered(filtered + 1);
+    }
+  };
+
   return (
     <div className="lg:w-[60%] md:w-[80%] w-full mt-8 mx-auto bg-[#F5F5F5] px-3 rounded-lg sm:flex hidden flex-row items-center justify-between">
       <img
         src={arrowPrew}
         className={`w-[25px] block ${
-          filtered == 1 ? "opacity-10 cursor-not-allowed" : ""
+          filtered == 1 ? "opacity-10 cursor-not-allowed" : "cursor-pointer"
         }`}
         onClick={prewClick}
       />
@@ -51,12 +60,12 @@ const Filtering = () => {
           return (
             <li
               key={data.id}
-              className={`cursor-pointer py-3 px-4 rounded-full transition ${
+              className={`cursor-pointer py-3 px-4 rounded-full transition hover:bg-[#2EDD99] hover:text-white ${
                 filtered == data.id ? "bg-[#2EDD99] text-white" : ""
               }`}
               onClick={() => setFiltered(data.id)}
             >
-              {data.title}
+              {t(data.title)}
             </li>
           );
         })}
@@ -66,8 +75,9 @@ const Filtering = () => {
         className={`w-[25px] block ${
           filtered == filteringData.length
             ? "opacity-10 cursor-not-allowed"
-            : ""
+            : "cursor-pointer"
         }`}
+        onClick={nextClick}
       />
     </div>
   );

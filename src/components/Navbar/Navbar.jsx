@@ -4,8 +4,11 @@ import { navbarData } from "../../data/navbarData";
 import burger from "../../image/icons/burger.svg";
 import Mobile from "./Mobile";
 import { Link as Scroll } from "react-scroll";
+import ChangeLang from "../../ui/ChangeLang";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
+  const { t } = useTranslation()
   const [open, setOpen] = useState(false);
   return (
     <div className="custom-container">
@@ -13,22 +16,25 @@ const Navbar = () => {
         <a href="/">
           <img src={logo} className="w-[80px]" />
         </a>
-        <ul className="sm:flex hidden flex-row gap-3">
+        <ul className="sm:flex hidden flex-row items-center gap-3">
           {navbarData.map((data) => {
             return (
-              <li key={data.id} className="cursor-pointer">
+              <li key={data.id} className="cursor-pointer p-[10px] transition text-black hover:text-white hover:bg-[#2EDD99] rounded">
                 <Scroll
                   to={data.link}
                   spy={true}
                   offset={-50}
                   smooth={true}
-                  className="hover:text-[#2EDD99] text-black"
+                  className=""
                 >
-                  {data.title}
+                  {t(data.title)}
                 </Scroll>
               </li>
             );
           })}
+          <li>
+            <ChangeLang />
+          </li>
         </ul>
         <img
           src={burger}

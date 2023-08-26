@@ -2,8 +2,10 @@ import React from "react";
 import axios from "../config/axios-config";
 import { POST_CONTACT } from "../data/constats";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const { i18n, t } = useTranslation();
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("+998");
   const [loading, setLoading] = useState(false);
@@ -11,12 +13,12 @@ const Contact = () => {
 
   const submitData = async () => {
     if (name.length <= 3) {
-      setError("Ismingizni kiriting!");
+      setError("contact.nameError");
       return;
     }
 
     if (phone.length <= 11 || phone.length > 13) {
-      setError("Raqamingizni to'g'ri kiriting!");
+      setError("contact.numberError");
       return;
     }
 
@@ -29,7 +31,7 @@ const Contact = () => {
       setName("");
       setPhone("+998");
       setLoading(false);
-      setError("")
+      setError("");
     } catch (error) {
       setLoading(true);
       console.log(error);
@@ -43,34 +45,46 @@ const Contact = () => {
       data-aos="fade-up"
     >
       <h1 className="text-[30px] font-bold text-center">
-        Biz bilan <span className="text-[#2EDD99]">bog'lanish</span>
+        {i18n.language == "uz" ? (
+          <>
+            Biz bilan <span className="text-[#2EDD99]">bog'lanish</span>
+          </>
+        ) : i18n.language == "ru" ? (
+          <>
+            <span className="text-[#2EDD99]">Связаться</span> с нами
+          </>
+        ) : (
+          <>
+            Contact <span className="text-[#2EDD99]">Us</span>
+          </>
+        )}
       </h1>
-      <div className="bg-[#5FE2AFCC] p-4 rounded-lg flex items-start flex-col gap-4">
-        <div className="flex flex-row gap-3">
-          <div className="flex flex-col gap-3 md:w-fit w-full">
+      <div className="bg-[#5FE2AFCC] p-4 rounded-lg flex items-center flex-col gap-4 lg:w-[70%] md:w-[90%] w-full mx-auto">
+        <div className="flex sm:flex-row flex-col gap-3">
+          <div className="flex flex-col sm:gap-2 gap-0 md:w-fit w-full">
             <label htmlFor="name" className="text-white">
-              Ismingiz
+              {t("contact.name")}
             </label>
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
               type="text"
               id="name"
-              className="px-4 py-3 rounded-lg outline-none"
-              placeholder="Ismingiz"
+              className="contact-input"
+              placeholder={t("contact.name")}
             />
           </div>
-          <div className="flex flex-col gap-3 md:w-fit w-full">
+          <div className="flex flex-col sm:gap-2 gap-0 md:w-fit w-full">
             <label htmlFor="phone" className="text-white">
-              Raqamingiz
+              {t("contact.number")}
             </label>
             <input
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               type="text"
               id="phone"
-              className="px-4 py-3 rounded-lg outline-none"
-              placeholder="Raqamingiz"
+              className="contact-input"
+              placeholder={t("contact.number")}
             />
           </div>
         </div>
@@ -78,13 +92,19 @@ const Contact = () => {
           {error.length == 0 ? (
             ""
           ) : (
-            <p className="md:text-start text-center md:w-fit w-full text-[red]">{error}</p>
+            <p className="md:text-start text-center md:w-fit w-full text-[red]">
+              {t(error)}
+            </p>
           )}
           <button
             className="md:w-fit w-full px-4 py-3 h-[50px] relative rounded-lg bg-[#2EDD99]"
             onClick={submitData}
           >
-            {loading ? "Yuborilmoqda" : "Yuborish"}
+            {loading ? (
+              <>{t("helpers.loading")}</>
+            ) : (
+              <>{t("helpers.yuborish")}</>
+            )}
           </button>
         </div>
       </div>
