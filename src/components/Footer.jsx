@@ -15,7 +15,7 @@ const Footer = () => {
           <a href="/">
             <img src={logo} className="w-[80px]" />
           </a>
-          <ul className="flex flex-row gap-3">
+          <ul className="flex sm:flex-row flex-col sm:gap-3 gap-1">
             {navbarData.map((data) => {
               return (
                 <li
