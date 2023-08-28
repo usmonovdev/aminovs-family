@@ -1,13 +1,12 @@
 import React from "react";
 import leaf from "../image/leaf2.png";
-import { Filtering } from "../ui";
 import { useTranslation } from "react-i18next";
 
 const BestSelling = () => {
   const { i18n } = useTranslation();
   return (
     <div
-      className="custom-container py-8 lg:mt-4 mt-0"
+      className="custom-container pt-4 lg:mt-4 mt-0"
       id="drinks"
       data-aos="fade-up"
     >
@@ -40,7 +39,6 @@ const BestSelling = () => {
           className="leaf-animation2 lg:block hidden absolute w-[200px] right-0"
         />
       </div>
-      <Filtering />
     </div>
   );
 };

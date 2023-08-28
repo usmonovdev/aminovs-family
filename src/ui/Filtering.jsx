@@ -7,26 +7,26 @@ const filteringData = [
   {
     id: 1,
     title: "helpers.all",
-    value: "",
+    value: "all",
   },
   {
     id: 2,
     title: "Diva",
-    value: "",
+    value: "Diva",
   },
   {
     id: 3,
     title: "Lux well",
-    value: "",
+    value: "Lux",
   },
   {
     id: 4,
     title: "Fructos",
-    value: "",
+    value: "Fructis",
   },
 ];
 
-const Filtering = () => {
+const Filtering = ({ selected, setSelected }) => {
   const [filtered, setFiltered] = useState(1);
   const { t } = useTranslation()
 
@@ -63,7 +63,10 @@ const Filtering = () => {
               className={`cursor-pointer py-3 px-4 rounded-full transition hover:bg-[#2EDD99] hover:text-white ${
                 filtered == data.id ? "bg-[#2EDD99] text-white" : ""
               }`}
-              onClick={() => setFiltered(data.id)}
+              onClick={() => {
+                setFiltered(data.id)
+                setSelected(data.value)
+              }}
             >
               {t(data.title)}
             </li>

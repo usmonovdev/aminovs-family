@@ -6,8 +6,7 @@ import lng from "../image/icons/lng.svg";
 const ChangeLang = () => {
   const [open, setOpen] = useState(false);
 
-  const { i18n, t } = useTranslation();
-  console.log(i18n);
+  const { i18n } = useTranslation();
 
   return (
     <div className="w-fit relative z-[1000]">
