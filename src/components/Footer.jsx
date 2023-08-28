@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <div className="bg-[#F3F3F3]">
       <div className="custom-container py-8">
-        <div className="flex sm:flex-row flex-col sm:items-center items-start justify-between">
+        <div className="flex sm:flex-row flex-col items-center justify-between">
           <a href="/">
             <img src={logo} className="w-[80px]" />
           </a>
@@ -20,7 +20,7 @@ const Footer = () => {
               return (
                 <li
                   key={data.id}
-                  className="cursor-pointer p-[10px] transition text-black hover:text-white hover:bg-[#2EDD99] rounded"
+                  className="cursor-pointer p-[10px] transition text-black hover:text-white hover:bg-[#2EDD99] rounded sm:text-start text-center"
                 >
                   <Scroll to={data.link} spy={true} offset={-50} smooth={true}>
                     {t(data.title)}
@@ -31,20 +31,20 @@ const Footer = () => {
           </ul>
         </div>
         <ul className="">
-          <li className="text-[#147D55] text-[35px] font-semibold">
+          <li className="text-[#147D55] sm:text-start text-center text-[35px] font-semibold">
             {t("footer.adress.title")}
           </li>
-          <li className="text-[#A9A9A9]">
+          <li className="text-[#A9A9A9] sm:text-start text-center">
             {t("footer.adress.adress")}: 1000115, Kichik Xalka Yuli 3-31,
             Chilonzor tumani, Toshkent shahri.
           </li>
-          <li className="text-[#A9A9A9]">
+          <li className="text-[#A9A9A9] sm:text-start text-center">
             {t("footer.adress.production")}: Toshkent shahri, Sergeli tumani,
             Beshkent ko`cha 83-uy
           </li>
         </ul>
-        <ul className="flex flex-col gap-3">
-          <li className="text-[#147D55] text-[35px] font-semibold">
+        <ul className="flex flex-col sm:items-start items-center gap-3">
+          <li className="text-[#147D55] sm:text-start text-center text-[35px] font-semibold">
             {t("footer.contact")}
           </li>
           <li className="text-[#A9A9A9] flex flex-row gap-4">
@@ -56,7 +56,7 @@ const Footer = () => {
             <a href="tel:+998955155415">+99895 515 54 15</a>
           </li>
         </ul>
-        <div className="flex flex-row items-center gap-4 mt-8 bg-[#2EDD99] p-2 rounded w-fit text-white">
+        <div className="flex sm:mx-0 mx-auto flex-row items-center gap-4 mt-8 bg-[#2EDD99] p-2 rounded w-fit text-white">
           <a href="https://primetechgroup.uz">
             <img src={primeLogo} className="w-[50px]" />
           </a>

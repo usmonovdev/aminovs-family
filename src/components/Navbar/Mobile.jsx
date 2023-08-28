@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import ChangeLang from "../../ui/ChangeLang";
 
 const Mobile = ({ open, setOpen }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   return (
     <>
       {open ? (
@@ -24,16 +24,20 @@ const Mobile = ({ open, setOpen }) => {
           <ul>
             {navbarData.map((data) => {
               return (
-                <li className="py-3 border border-t-0 border-r-0 border-l-0 cursor-pointer" key={data.id}>
-                  <Scroll
-                  to={data.link}
-                  spy={true}
-                  offset={-50}
-                  smooth={true}
-                  className="hover:text-[#2EDD99] text-black"
+                <li
+                  className="py-3 border border-t-0 border-r-0 border-l-0 cursor-pointer"
+                  key={data.id}
                 >
-                  {t(data.title)}
-                </Scroll>
+                  <Scroll
+                    to={data.link}
+                    spy={true}
+                    offset={-50}
+                    smooth={true}
+                    className="hover:text-[#2EDD99] text-black"
+                    onClick={() => setOpen(!open)}
+                  >
+                    {t(data.title)}
+                  </Scroll>
                 </li>
               );
             })}

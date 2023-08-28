@@ -3,6 +3,23 @@ import axios from "../config/axios-config";
 import { POST_CONTACT } from "../data/constats";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { IMaskInput } from "react-imask";
+
+const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
+  const { onChange, ...other } = props;
+  return (
+    <IMaskInput
+      {...other}
+      mask="+{998}000000000"
+      definitions={{
+        _: /[1-9]/,
+      }}
+      inputRef={ref}
+      onAccept={(value) => onChange({ target: { name: props.name, value } })}
+      overwrite
+    />
+  );
+});
 
 const Contact = () => {
   const { i18n, t } = useTranslation();
@@ -78,10 +95,10 @@ const Contact = () => {
             <label htmlFor="phone" className="text-white">
               {t("contact.number")}
             </label>
-            <input
+            <TextMaskCustom
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              type="text"
+              type="tel"
               id="phone"
               className="contact-input"
               placeholder={t("contact.number")}
