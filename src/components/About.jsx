@@ -5,6 +5,7 @@ import axios from "../config/axios-config";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import test from "../image/test.png"
 
 const About = () => {
   const { i18n } = useTranslation();
@@ -55,12 +56,12 @@ const About = () => {
                 className="cube-animation2 w-[100px] absolute top-3 right-0"
               />
             </div>
-            <div className="w-full mt-8 rounded-lg flex md:flex-row flex-col-reverse p-4 bg-[#F3F3F3]">
+            <div className="sm:w-[80%] w-full mx-auto min-h-[400px] overflow-hidden mt-8 rounded-lg flex md:flex-row flex-col-reverse p-4 bg-[#F3F3F3]">
               <div className="md:w-[50%] w-full">
                 <p className="p-4">{description}</p>
               </div>
-              <div className="md:w-[50%] w-full">
-                <img src={image} alt={title} />
+              <div className="md:w-[50%] w-full flex items-center justify-center">
+                <img src={image} alt={title} className="w-full h-full object-cover" />
               </div>
             </div>
           </>
