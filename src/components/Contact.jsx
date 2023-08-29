@@ -4,6 +4,9 @@ import { POST_CONTACT } from "../data/constats";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { IMaskInput } from "react-imask";
+import cherry from "../image/cherry.png";
+import orange from "../image/orange.png";
+import leaf from "../image/leaf1.png";
 
 const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
   const { onChange, ...other } = props;
@@ -57,10 +60,22 @@ const Contact = () => {
 
   return (
     <div
-      className="custom-container my-8 flex flex-col gap-4"
+      className="custom-container my-8 flex flex-col gap-4 relative"
       id="contact"
       data-aos="fade-up"
     >
+      <img src={cherry} alt="cherry" className="absolute w-[100px]" />
+      <img
+        src={leaf}
+        alt="cherry"
+        className="md:block hidden absolute w-[100px] top-[130px]"
+      />
+      <img src={orange} alt="cherry" className="absolute w-[100px] right-0" />
+      <img
+        src={leaf}
+        alt="cherry"
+        className="md:block hidden rotate-90 absolute w-[100px] right-[100px] top-[100px]"
+      />
       <h1 className="text-[30px] font-bold text-center">
         {i18n.language == "uz" ? (
           <>
@@ -77,52 +92,54 @@ const Contact = () => {
         )}
       </h1>
       <div className="bg-[#5FE2AFCC] p-4 rounded-lg flex items-center flex-col gap-4 lg:w-[70%] md:w-[90%] w-full mx-auto">
-        <div className="flex sm:flex-row flex-col gap-3">
-          <div className="flex flex-col sm:gap-2 gap-0 md:w-fit w-full">
-            <label htmlFor="name" className="text-white">
-              {t("contact.name")}
-            </label>
-            <input
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              type="text"
-              id="name"
-              className="contact-input"
-              placeholder={t("contact.name")}
-            />
+        <div>
+          <div className="flex sm:flex-row flex-col gap-3">
+            <div className="flex flex-col sm:gap-2 gap-0 md:w-fit w-full">
+              <label htmlFor="name" className="text-white">
+                {t("contact.name")}
+              </label>
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                id="name"
+                className="contact-input"
+                placeholder={t("contact.name")}
+              />
+            </div>
+            <div className="flex flex-col sm:gap-2 gap-0 md:w-fit w-full">
+              <label htmlFor="phone" className="text-white">
+                {t("contact.number")}
+              </label>
+              <TextMaskCustom
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                type="tel"
+                id="phone"
+                className="contact-input"
+                placeholder={t("contact.number")}
+              />
+            </div>
           </div>
-          <div className="flex flex-col sm:gap-2 gap-0 md:w-fit w-full">
-            <label htmlFor="phone" className="text-white">
-              {t("contact.number")}
-            </label>
-            <TextMaskCustom
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              type="tel"
-              id="phone"
-              className="contact-input"
-              placeholder={t("contact.number")}
-            />
-          </div>
-        </div>
-        <div className="flex flex-col gap-3">
-          {error.length == 0 ? (
-            ""
-          ) : (
-            <p className="md:text-start text-center md:w-fit w-full text-[red]">
-              {t(error)}
-            </p>
-          )}
-          <button
-            className="md:w-fit w-full px-4 py-3 h-[50px] relative rounded-lg bg-[#2EDD99]"
-            onClick={submitData}
-          >
-            {loading ? (
-              <>{t("helpers.loading")}</>
+          <div className="flex flex-col gap-3 w-full">
+            {error.length == 0 ? (
+              ""
             ) : (
-              <>{t("helpers.yuborish")}</>
+              <p className="md:text-start text-center md:w-fit w-full text-[red]">
+                {t(error)}
+              </p>
             )}
-          </button>
+            <button
+              className="sm:w-fit w-full px-4 py-3 text-white h-[50px] relative rounded-lg bg-[#2EDD99]"
+              onClick={submitData}
+            >
+              {loading ? (
+                <>{t("helpers.loading")}</>
+              ) : (
+                <>{t("helpers.yuborish")}</>
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </div>

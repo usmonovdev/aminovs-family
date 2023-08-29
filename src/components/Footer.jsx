@@ -30,45 +30,50 @@ const Footer = () => {
             })}
           </ul>
         </div>
-        <ul className="">
-          <li className="text-[#147D55] sm:text-start text-center text-[35px] font-semibold">
-            {t("footer.adress.title")}
-          </li>
-          <li className="text-[#A9A9A9] sm:text-start text-center">
-            {t("footer.adress.adress")}: 1000115, Kichik Xalka Yuli 3-31,
-            Chilonzor tumani, Toshkent shahri.
-          </li>
-          <li className="text-[#A9A9A9] sm:text-start text-center">
-            {t("footer.adress.production")}: Toshkent shahri, Sergeli tumani,
-            Beshkent ko`cha 83-uy
-          </li>
-        </ul>
-        <ul className="flex flex-col sm:items-start items-center gap-3">
-          <li className="text-[#147D55] sm:text-start text-center text-[35px] font-semibold">
-            {t("footer.contact")}
-          </li>
-          <li className="text-[#A9A9A9] flex flex-row gap-4">
-            <img src={phone} className="w-[25px]" />
-            <a href="tel:+998901200700">+99890 120 07 00</a>
-          </li>
-          <li className="text-[#A9A9A9] flex flex-row gap-4">
-            <img src={phone} className="w-[25px]" />
-            <a href="tel:+998955155415">+99895 515 54 15</a>
-          </li>
-        </ul>
-        <div className="flex sm:mx-0 mx-auto flex-row items-center gap-4 mt-8 bg-[#2EDD99] p-2 rounded w-fit text-white">
-          <a href="https://primetechgroup.uz">
-            <img src={primeLogo} className="w-[50px]" />
-          </a>
-          <a href="https://primetechgroup.uz" className="">
-            {i18n.language == "uz" ? (
-              <>Prime tech tomonidan ishlab chiqarilgan.</>
-            ) : i18n.language == "ru" ? (
-              <>Производится Prime tech.</>
-            ) : (
-              <>Produced by Prime tech.</>
-            )}
-          </a>
+        <div className="w-full flex sm:flex-row flex-col justify-between">
+          <ul className="flex flex-col gap-3">
+            <li className="text-[#147D55] sm:text-start text-center text-[35px] font-semibold">
+              {t("footer.adress.title")}
+            </li>
+            <li className="text-[#A9A9A9] sm:text-start text-center">
+              {t("footer.adress.adress")}: 1000115, Kichik Xalka Yuli 3-31,
+              Chilonzor tumani, Toshkent shahri.
+            </li>
+            <li className="text-[#A9A9A9] sm:text-start text-center">
+              {t("footer.adress.production")}: Toshkent shahri, Sergeli tumani,
+              Beshkent ko`cha 83-uy
+            </li>
+          </ul>
+          <ul className="flex flex-col sm:items-start items-center gap-3">
+            <li className="text-[#147D55] sm:hidden block sm:text-start text-center text-[35px] font-semibold">
+              {t("footer.contact")}
+            </li>
+            <li>
+              <ul className="flex flex-row gap-3 items-center">
+                <img src={phone} className="w-[50px]" />
+                <li className="flex flex-col gap-2">
+                  <a href="tel:+998901200700" className="text-[#147D55]">+99890 120 07 00</a>
+                  <a href="tel:+998955155415" className="text-[#147D55]">+99895 515 54 15</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div className="created flex sm:mx-0 mx-auto flex-row items-center gap-4 bg-[#2EDD99] py-2 px-8 rounded w-fit text-white">
+                <a href="https://primetechgroup.uz" className="">
+                  {i18n.language == "uz" ? (
+                    <>Ishlab chiqaruvchi:</>
+                  ) : i18n.language == "ru" ? (
+                    <>Производится:</>
+                  ) : (
+                    <>Created by:</>
+                  )}
+                </a>
+                <a href="https://primetechgroup.uz">
+                  <img src={primeLogo} className="w-[40px]" />
+                </a>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
