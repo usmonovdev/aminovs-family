@@ -108,3 +108,8 @@
 .created {
   clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
 }
+
+.about {
+  background-image: url(./image/sok-bg.jpg);
+  background-size: cover;
+}

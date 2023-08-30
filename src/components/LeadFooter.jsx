@@ -3,10 +3,10 @@ import logo from "../image/logo.png";
 import phone from "../image/icons/phone.svg";
 import primeLogo from "../image/prime.png";
 import { navbarData } from "../data/navbarData";
-import { Link as Scroll } from "react-scroll";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
-const Footer = () => {
+const LeadFooter = () => {
   const { i18n, t } = useTranslation();
   return (
     <div className="bg-[#F3F3F3]">
@@ -22,9 +22,9 @@ const Footer = () => {
                   key={data.id}
                   className="cursor-pointer p-[10px] transition text-black hover:text-white hover:bg-[#2EDD99] rounded sm:text-start text-center"
                 >
-                  <Scroll to={data.link} spy={true} offset={-50} smooth={true}>
+                  <Link to={"/"}>
                     {t(data.title)}
-                  </Scroll>
+                  </Link>
                 </li>
               );
             })}
@@ -80,4 +80,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default LeadFooter;

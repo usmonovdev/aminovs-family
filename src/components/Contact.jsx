@@ -7,6 +7,7 @@ import { IMaskInput } from "react-imask";
 import cherry from "../image/cherry.png";
 import orange from "../image/orange.png";
 import leaf from "../image/leaf1.png";
+import { useEffect } from "react";
 
 const TextMaskCustom = React.forwardRef(function TextMaskCustom(props, ref) {
   const { onChange, ...other } = props;
@@ -44,10 +45,13 @@ const Contact = () => {
 
     setLoading(true);
     try {
-      await axios.post(POST_CONTACT, {
-        name,
-        phone,
-      });
+      await axios.post(
+        `https://clean-juice.primetechgroup.uz/${i18n.language}/${POST_CONTACT}`,
+        {
+          name,
+          phone,
+        }
+      );
       setName("");
       setPhone("+998");
       setLoading(false);
@@ -57,6 +61,8 @@ const Contact = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {}, [i18n.language]);
 
   return (
     <div

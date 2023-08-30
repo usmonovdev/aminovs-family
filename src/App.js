@@ -23,7 +23,6 @@ function App() {
         <Route path="/leader" element={<Leader />}/>
         <Route path="*" element={<NotFound />}/>
       </Routes>
-      <Footer />
     </div>
   );
 }

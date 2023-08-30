@@ -3,17 +3,21 @@ import React, { useEffect, useMemo, useState } from "react";
 import star from "../image/icons/star.svg";
 import eye from "../image/icons/eye.svg";
 import { Filtering } from "../ui";
+import { GET_PRODUCT } from "../data/constats";
+import { useTranslation } from "react-i18next";
 
 const Products = () => {
+  const { i18n } = useTranslation();
   const [product, setProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [selected, setSelected] = useState("all");
-  console.log(selected);
 
   const getProduct = async () => {
     setIsLoading(true);
     try {
-      const { data } = await axios.get("products/product-list");
+      const { data } = await axios.get(
+        `https://clean-juice.primetechgroup.uz/${i18n.language}/${GET_PRODUCT}`
+      );
       setProduct(data);
       setIsLoading(false);
     } catch (error) {
@@ -24,16 +28,16 @@ const Products = () => {
 
   useEffect(() => {
     getProduct();
-  }, []);
+  }, [i18n.language]);
 
   function getFiltered() {
     if (selected == "all") {
-      return product
+      return product;
     }
-    return product.filter((e) => e.type.type == selected)
+    return product.filter((e) => e.type.type == selected);
   }
 
-  var filteredData = useMemo(getFiltered, [selected, product])
+  var filteredData = useMemo(getFiltered, [selected, product]);
   console.log(filteredData);
 
   return (

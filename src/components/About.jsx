@@ -1,18 +1,19 @@
 import React from "react";
 import cube from "../image/cube.png";
 import { GET_ABOUT } from "../data/constats";
-import axios from "../config/axios-config";
+import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import test from "../image/test.png"
 
 const About = () => {
   const { i18n } = useTranslation();
   const [info, setInfo] = useState([]);
   const getInfo = async () => {
     try {
-      const { data } = await axios.get(GET_ABOUT);
+      const { data } = await axios.get(
+        `https://clean-juice.primetechgroup.uz/${i18n.language}/${GET_ABOUT}`
+      );
       setInfo(data);
     } catch (error) {
       console.log(error);
@@ -21,7 +22,7 @@ const About = () => {
 
   useEffect(() => {
     getInfo();
-  }, []);
+  }, [i18n.language]);
 
   return (
     <div className="custom-container mb-8" id="about" data-aos="fade-up">
@@ -56,12 +57,16 @@ const About = () => {
                 className="cube-animation2 w-[100px] absolute top-3 right-0"
               />
             </div>
-            <div className="sm:w-[80%] w-full mx-auto min-h-[400px] overflow-hidden mt-8 rounded-lg flex md:flex-row flex-col-reverse p-4 bg-[#F3F3F3]">
+            <div className="about sm:w-[80%] w-full mx-auto min-h-[400px] overflow-hidden mt-8 rounded-lg flex md:flex-row flex-col-reverse p-4">
               <div className="md:w-[50%] w-full">
-                <p className="p-4">{description}</p>
+                <p className="p-4 text-white">{description}</p>
               </div>
               <div className="md:w-[50%] w-full flex items-center justify-center">
-                <img src={image} alt={title} className="w-full h-full object-cover" />
+                <img
+                  src={image}
+                  alt={title}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </>
